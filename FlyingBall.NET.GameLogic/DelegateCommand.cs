@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace FlyingBall.NET
+namespace FlyingBall.NET.GameLogic
 {
     public class DelegateCommand : ICommand
     {

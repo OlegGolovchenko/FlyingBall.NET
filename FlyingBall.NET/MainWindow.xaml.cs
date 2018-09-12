@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -20,9 +21,19 @@ namespace FlyingBall.NET
     /// </summary>
     public partial class MainWindow : Window
     {
+        private SoundPlayer _player;
+
         public MainWindow()
         {
             InitializeComponent();
+            _player = new SoundPlayer("bounce.wav");
+            _player.Load();
+            GameViewModel.PlayJumpSound += GameVM_PlayJumpSound;
+        }
+
+        private void GameVM_PlayJumpSound()
+        {
+            _player.Play();
         }
     }
 }

@@ -1,19 +1,22 @@
-﻿<Window x:Class="FlyingBall.NET.MainWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:FlyingBall.NET"
+        xmlns:local="clr-namespace:FlyingBall.NET.GameLogic;assembly=FlyingBall.NET.GameLogic"
+        xmlns:current ="clr-namespace:FlyingBall.NET"
+        x:Class="FlyingBall.NET.MainWindow"
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="800" ResizeMode="NoResize">
     <Window.DataContext>
-        <local:GameVM/>
+        <local:GameVM x:Name="GameViewModel" />
     </Window.DataContext>
     <Window.InputBindings>
-        <KeyBinding Key="Space" Command="{Binding AugmentScoreCommand}"/>
+        <KeyBinding Key="Space" Command="{Binding JumpCommand, Mode=OneWay}" />
     </Window.InputBindings>
     <Grid>
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
@@ -21,9 +24,17 @@
             <RowDefinition Height="2*"/>
             <RowDefinition Height="20*"/>
         </Grid.RowDefinitions>
-        <Label x:Name="lblScore" Content="{Binding Score,Mode=OneWay}" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
-        <Canvas HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1">
-            
+        <Label x:Name="lblScore" Content="{Binding Score, Mode=OneWay}" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+        <Canvas HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="1" IsEnabled="True">
+            <Ellipse Width="{Binding Width}" Height="{Binding Height}" Canvas.Left="{Binding X}" Canvas.Top="{Binding Y}" Visibility="Visible">
+                <Ellipse.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                        <GradientStop Color="Black" Offset="1"/>
+                        <GradientStop Color="White"/>
+                    </LinearGradientBrush>
+                </Ellipse.Fill>
+            </Ellipse>
+            <Rectangle Fill="Black" Canvas.Left="0" Canvas.Top="509" Height="10" Width="794"/>
         </Canvas>
     </Grid>
 </Window>
