@@ -14,6 +14,7 @@ namespace FlyingBall.NET.GameLogic
     {
         public event PropertyChangedEventHandler PropertyChanged;
         public event JumpEventHandler PlayJumpSound;
+        public event JumpEventHandler PlayCrashSound;
 
         private int _realScore = 0;
         private string _score;
@@ -102,6 +103,16 @@ namespace FlyingBall.NET.GameLogic
             }
         }
 
+        private double _yGround = 499;
+
+        public double YGround
+        {
+            get
+            {
+                return _yGround;
+            }
+        }
+
         public GameVM()
         {
             AugmentScore();
@@ -121,8 +132,24 @@ namespace FlyingBall.NET.GameLogic
 
         private void Jump()
         {
-            Y = Y - 20;
+            Y = Y>0?Y - 50:Y;
             PlayJumpSound?.Invoke();
+            if (_crashed)
+            {
+                _crashed = false;
+            }
+        }
+
+        private bool _crashed = false;
+
+        public void Fall()
+        {
+            Y = Y < YGround - Height ? Y + 5 : Y;
+            if(Y >= (YGround - (Height+1)) && !_crashed)
+            {
+                PlayCrashSound?.Invoke();
+                _crashed = true;
+            }
         }
 
         private void AugmentScore()

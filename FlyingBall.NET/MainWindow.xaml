@@ -7,7 +7,7 @@
         xmlns:current ="clr-namespace:FlyingBall.NET"
         x:Class="FlyingBall.NET.MainWindow"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="800" ResizeMode="NoResize">
+        Title="MainWindow" Height="600" Width="800" ResizeMode="NoResize" Closing="Window_Closing">
     <Window.DataContext>
         <local:GameVM x:Name="GameViewModel" />
     </Window.DataContext>
@@ -34,7 +34,11 @@
                     </LinearGradientBrush>
                 </Ellipse.Fill>
             </Ellipse>
-            <Rectangle Fill="Black" Canvas.Left="0" Canvas.Top="509" Height="10" Width="794"/>
+            <Rectangle Fill="Black" Canvas.Left="0" Canvas.Top="{Binding YGround, Mode=OneWay}" Height="20" Width="794"/>
+            <Rectangle/>
+            <Rectangle/>
+            <Rectangle/>
+            <Rectangle/>
         </Canvas>
     </Grid>
 </Window>
