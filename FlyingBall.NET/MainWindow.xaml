@@ -34,11 +34,63 @@
                     </LinearGradientBrush>
                 </Ellipse.Fill>
             </Ellipse>
-            <Rectangle Fill="Black" Canvas.Left="0" Canvas.Top="{Binding YGround, Mode=OneWay}" Height="20" Width="794"/>
-            <Rectangle/>
-            <Rectangle/>
-            <Rectangle/>
-            <Rectangle/>
+            <Rectangle Fill="Black" Canvas.Left="0" Canvas.Top="{Binding YGround, Mode=OneWay}" Height="20" Width="794" Panel.ZIndex="2"/>
+            <Rectangle Width="40" Height="499" Canvas.Left="754" Canvas.Top="0"  Panel.ZIndex="2">
+                <Rectangle.Fill>
+                    <RadialGradientBrush>
+                        <GradientStop Color="Black" Offset="1"/>
+                        <GradientStop Color="White"/>
+                    </RadialGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Rectangle Width="40" Canvas.Top="0" Height="{Binding HeightBarrier1}" Canvas.Left="{Binding XBarrier1}" Panel.ZIndex="1">
+                <Rectangle.Fill>
+                    <RadialGradientBrush>
+                        <GradientStop Color="Black" Offset="1"/>
+                        <GradientStop Color="White" Offset="0"/>
+                    </RadialGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Rectangle Width="40" Canvas.Bottom="0" Height="{Binding HeightBarrier1Low}" Canvas.Left="{Binding XBarrier1}" Panel.ZIndex="1">
+                <Rectangle.Fill>
+                    <RadialGradientBrush>
+                        <GradientStop Color="Black" Offset="1"/>
+                        <GradientStop Color="White" Offset="0"/>
+                    </RadialGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Rectangle Width="40" Canvas.Top="0" Height="{Binding HeightBarrier2}" Canvas.Left="{Binding XBarrier2}" Panel.ZIndex="1">
+                <Rectangle.Fill>
+                    <RadialGradientBrush>
+                        <GradientStop Color="Black" Offset="1"/>
+                        <GradientStop Color="White" Offset="0"/>
+                    </RadialGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Rectangle Width="40" Canvas.Bottom="0" Height="{Binding HeightBarrier2Low}" Canvas.Left="{Binding XBarrier2}" Panel.ZIndex="1">
+                <Rectangle.Fill>
+                    <RadialGradientBrush>
+                        <GradientStop Color="Black" Offset="1"/>
+                        <GradientStop Color="White" Offset="0"/>
+                    </RadialGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Rectangle Width="40" Canvas.Top="0" Height="{Binding HeightBarrier3}" Canvas.Left="{Binding XBarrier3}" Panel.ZIndex="1">
+                <Rectangle.Fill>
+                    <RadialGradientBrush>
+                        <GradientStop Color="Black" Offset="1"/>
+                        <GradientStop Color="White" Offset="0"/>
+                    </RadialGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Rectangle Width="40" Canvas.Bottom="0" Height="{Binding HeightBarrier3Low}" Canvas.Left="{Binding XBarrier3}" Panel.ZIndex="1">
+                <Rectangle.Fill>
+                    <RadialGradientBrush>
+                        <GradientStop Color="Black" Offset="1"/>
+                        <GradientStop Color="White" Offset="0"/>
+                    </RadialGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
         </Canvas>
     </Grid>
 </Window>
